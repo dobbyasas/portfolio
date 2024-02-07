@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
   --background-light: #FAFAFA;
   --text-light: #1A1A1A;
@@ -12,6 +14,7 @@ body {
   background-color: var(--background-light);
   color: var(--text-light);
   transition: background-color 0.3s, color 0.3s;
+  font-family: 'Poppins', sans-serif;
 }
 
 h1, button, .content {
