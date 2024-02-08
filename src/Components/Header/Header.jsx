@@ -6,9 +6,7 @@ import './Header.scss';
 
 function Header() {
     const { theme, toggleTheme } = useContext(ThemeContext);
-
-    const logoSrc = theme === 'dark' ? '/img/dark-logo.png' : '/img/light-logo.png';
-
+    
     useEffect(() => {
         document.body.className = theme;
     }, [theme]);
@@ -22,7 +20,7 @@ function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                    <img src={logoSrc} alt="Logo" />
+                    <img src="/img/logo.png" alt="" />
                 </motion.a>
             </div>
             <nav className="navigation">

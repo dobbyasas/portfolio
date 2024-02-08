@@ -5,10 +5,10 @@ $font-family: 'Poppins', sans-serif;
 $logo-size: 50px;
 
 $content-light: #ADD8E6;
-$content-dark: #da0404;
+$content-dark: #af0505;
 
 .header {
-  display: flex;
+  display: flex ;
   justify-content: space-between;
   align-items: center;
   height: $header-height;
@@ -18,7 +18,7 @@ $content-dark: #da0404;
   transition: background-color 0.3s ease;
 
   &.light {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
     color: black;
 
     .theme-switcher {
@@ -27,7 +27,7 @@ $content-dark: #da0404;
   }
 
   &.dark {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     color: white;
 
     .theme-switcher {
