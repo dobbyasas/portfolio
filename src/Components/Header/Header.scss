@@ -16,6 +16,7 @@ $content-dark: #af0505;
   padding: 0 20px;
   font-family: $font-family;
   transition: background-color 0.3s ease;
+  z-index: -1;
 
   &.light {
     background-color: transparent;
