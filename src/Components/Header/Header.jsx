@@ -20,7 +20,7 @@ function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                    <img src="/img/logo.png" alt="" />
+                    <img src="/img/logo.svg" alt="" />
                 </motion.a>
             </div>
             <nav className="navigation">

@@ -47,7 +47,23 @@ $content-dark: #af0505;
   .logo img {
     width: $logo-size;
     height: auto;
-    transition: transform 0.3s ease-in-out;
+    transition: filter 0.3s ease-in-out;
+  }
+
+  &.light {
+    --logo-color: var(--logo-color-light);
+
+    .logo img {
+      filter: invert(0%);
+    }
+  }
+
+  &.dark {
+    --logo-color: var(--logo-color-dark);
+
+    .logo img {
+      filter: invert(100%);
+    }
   }
 
   .navigation ul {
@@ -117,7 +133,8 @@ $content-dark: #af0505;
         background-color: #FFF;
         border-radius: 50%;
         transition: left 0.3s ease-in-out;
-      
+
+        
         svg {
           width: 100%;
           height: 100%;

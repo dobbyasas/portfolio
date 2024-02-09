@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
+import { motion } from 'framer-motion';
 import './Hello.scss';
 
 function Hello() {
@@ -8,28 +9,35 @@ function Hello() {
 
     const toggleTransformation = () => setIsTransformed(!isTransformed);
 
-    const logoImagePath = process.env.PUBLIC_URL + '/img/logo.png';
-    const lightProfileImagePath = process.env.PUBLIC_URL + '/img/profile/light.jpeg';
-    const darkProfileImagePath = process.env.PUBLIC_URL + '/img/profile/dark.jpeg';
-
-    const imageToShow = isTransformed
-        ? theme === 'light' ? lightProfileImagePath : darkProfileImagePath
-        : logoImagePath;
-
     return (
         <div className={`hello ${theme} ${isTransformed ? 'transformed' : ''}`}>
             <div className="background-layer">
-                <img src={`${process.env.PUBLIC_URL}/img/background/background.gif`} alt="" />
+                <img src={`${process.env.PUBLIC_URL}/img/background/background.gif`} alt="" /> 
             </div>
 
-            <div className="content">
-                <div className="logo-container">
-                    <img src={imageToShow} alt="Display" />
+            <div className="split-container">
+                <div className="left-side">
+                    <div className={`header ${theme}`}>
+                        <div className="logo">
+                            <motion.a
+                            href="#"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            >
+                                <img src="/img/logo.svg" alt="" />
+                            </motion.a>
+                        </div>
+                    </div>
                 </div>
-                <div className="text-and-button-container">
-                    <p>{isTransformed ? "About Me" : theme === 'light' ? "Welcome to the Light Theme" : "Welcome to the Dark Theme"}</p>
-                    <button onClick={toggleTransformation}>{isTransformed ? "Go Back" : "Transform Background"}</button>
-                    {isTransformed && <button>Another Action</button>}
+
+                <div className="right-side">
+                    <div className="text-and-button-container">
+                        <h3>{isTransformed ? "About Me" : theme === 'light' ? "Welcome to the Light Theme" : "Welcome to the Dark Theme"}</h3>
+                        <p>{isTransformed ? "Here's a bit about me." : theme === 'light' ? "Enjoy our light theme." : "Explore our dark theme."}</p>
+                        <button onClick={toggleTransformation}>{isTransformed ? "Go Back" : "Transform Background"}</button>
+                        {isTransformed && <button>Another Action</button>}
+                    </div>
                 </div>
             </div>
         </div>
