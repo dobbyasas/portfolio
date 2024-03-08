@@ -1,37 +1,40 @@
 .light-background {
+    background-color: #f0f0f0;
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
   }
   
   .music-note {
     position: absolute;
-    font-size: 24px;
-    animation: float 10s linear infinite;
+    font-size: 16px;
+    color: #000;
   }
-
-  @for $i from 1 through 5 {
+  
+  @for $i from 1 through 20 {
     .note-#{$i} {
-      left: (20% * $i) - 10%;
-      animation-delay: (2s * $i) - 2s;
+      animation: float#{$i} 10s infinite linear;
+      animation-delay: -#{$i}s; 
     }
   }
   
-  @keyframes float {
-    0% {
-      transform: translateY(100vh) translateX(0);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-100vh) translateX(50vw);
-      opacity: 0;
+  @for $i from 1 through 20 {
+    @keyframes float#{$i} {
+      0% {
+        transform: translateY(-10%) translateX(random(200) - 100vw);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) translateX(random(200) - 100vw);
+        opacity: 0;
+      }
     }
   }
   

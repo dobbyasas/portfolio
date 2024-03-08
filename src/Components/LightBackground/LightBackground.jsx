@@ -2,9 +2,10 @@ import React from 'react';
 import './LightBackground.scss';
 
 const LightBackground = () => {
-  const musicNotes = Array.from({ length: 5 }).map((_, index) => (
-    <div key={index} className={`music-note note-${index + 1}`}>
-      🎵 
+  const musicNotesCount = 100;
+  const musicNotes = Array.from({ length: musicNotesCount }).map((_, index) => (
+    <div key={index} className={`music-note note-${index % 20}`}> 
+      🎵
     </div>
   ));
 
