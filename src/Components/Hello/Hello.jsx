@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import { motion } from 'framer-motion';
+import LightBackground from '../LightBackground/LightBackground';
+import DarkBackground from '../DarkBackground/DarkBackground';
 import './Hello.scss';
 
 function Hello() {
@@ -11,9 +13,10 @@ function Hello() {
 
     return (
         <div className={`hello ${theme} ${isTransformed ? 'transformed' : ''}`}>
-            <div className="background-layer">
-                <img src={`${process.env.PUBLIC_URL}/img/background/background.gif`} alt="" /> 
+             <div className="background-layer">
+                {theme === 'light' ? <LightBackground /> : <DarkBackground />}
             </div>
+
 
             <div className="split-container">
                 <div className="left-side">
@@ -33,9 +36,9 @@ function Hello() {
 
                 <div className="right-side">
                     <div className="text-and-button-container">
-                        <h3>{isTransformed ? "About Me" : theme === 'light' ? "Web, app and game developer" : "Musician and producer"}</h3>
-                        <p>{isTransformed ? "Here's a bit about me." : theme === 'light' ? "React.js, Swift, Unity" : "Ableton"}</p>
-                        <button onClick={toggleTransformation}>{isTransformed ? "Go Back" : "Bum"}</button>
+                        <h3>{isTransformed ? "About Me" : theme === 'light' ? "Musician and producer" : "Web, app and game developer"}</h3>
+                        <p>{isTransformed ? "Here's a bit about me." : theme === 'light' ? "Ableton" : "React.js, Swift, Unity"}</p>
+                        <button onClick={toggleTransformation}>{isTransformed ? "Bum" : "Back"}</button>
                         {isTransformed && <button>Another Action</button>}
                     </div>
                 </div>
